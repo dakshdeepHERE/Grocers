@@ -1,4 +1,6 @@
+import 'package:akshitboc/features/cart/ui/cart.dart';
 import 'package:akshitboc/features/home/bloc/home_bloc.dart';
+import 'package:akshitboc/features/wishlist/ui/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,9 +17,17 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return BlocConsumer<HomeBloc, HomeState>(
       bloc: homeBloc,
-      // listenWhen: (previous, current) {},
-      // buildWhen: (previous, current) {},
-      listener: (context, state) {},
+      listenWhen: (previous, current) => current is HomeActionState,
+      buildWhen: (previous, current) => current is! HomeActionState,
+      listener: (context, state) {
+        if (state is HomeNavigateToCartPageActionState) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Cart()));
+        } else if (state is HomeNavigateToWishlistPageActionState) {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Wishlist()));
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
