@@ -66,10 +66,12 @@ class _HomeState extends State<Home> {
                       ))
                 ],
               ),
-              body: ListView.builder(itemBuilder: (context, index) {
-                return ProductTileWidget(
-                    productDataModel: successState.products[index]);
-              }),
+              body: ListView.builder(
+                  itemCount: successState.products.length,
+                  itemBuilder: (context, index) {
+                    return ProductTileWidget(
+                        productDataModel: successState.products[index]);
+                  }),
             );
           case HomeErrorState:
             return Scaffold(body: Center(child: Text('Error')));
