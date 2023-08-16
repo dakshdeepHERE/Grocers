@@ -1,5 +1,6 @@
 import 'package:akshitboc/features/cart/ui/cart.dart';
 import 'package:akshitboc/features/home/bloc/home_bloc.dart';
+import 'package:akshitboc/features/home/ui/product_tile_widget.dart';
 import 'package:akshitboc/features/wishlist/ui/wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,6 +42,7 @@ class _HomeState extends State<Home> {
               body: Center(child: CircularProgressIndicator()),
             );
           case HomeLoadedSuccessState:
+            final successState = state as HomeLoadedSuccessState;
             return Scaffold(
               appBar: AppBar(
                 title: const Text(
@@ -64,6 +66,10 @@ class _HomeState extends State<Home> {
                       ))
                 ],
               ),
+              body: ListView.builder(itemBuilder: (context, index) {
+                return ProductTileWidget(
+                    productDataModel: successState.products[index]);
+              }),
             );
           case HomeErrorState:
             return Scaffold(body: Center(child: Text('Error')));
