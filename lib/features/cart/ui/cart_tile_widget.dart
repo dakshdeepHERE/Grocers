@@ -1,22 +1,25 @@
-import 'package:akshitboc/features/home/models/home_product_data_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
+import '../../home/models/home_product_data_model.dart';
 import '../bloc/cart_bloc.dart';
 
 class CartTileWidget extends StatelessWidget {
+  final ProductDataModel productDataModel;
   final CartBloc cartBloc;
   const CartTileWidget(
       {super.key, required this.productDataModel, required this.cartBloc});
-  final ProductDataModel productDataModel;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
-          borderRadius: BorderRadius.circular(22)),
       margin: const EdgeInsets.all(10),
       padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.black)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,25 +28,19 @@ class CartTileWidget extends StatelessWidget {
             width: double.maxFinite,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    fit: BoxFit.contain,
+                    fit: BoxFit.cover,
                     image: NetworkImage(productDataModel.imageURL))),
           ),
           const SizedBox(height: 20),
-          Text(
-            productDataModel.name,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
+          Text(productDataModel.name,
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           Text(productDataModel.category),
-          const SizedBox(
-            height: 10,
-          ),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "\$ ${productDataModel.price}",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              Text("\$" + productDataModel.price.toString(),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Row(
                 children: [
                   IconButton(
@@ -51,15 +48,13 @@ class CartTileWidget extends StatelessWidget {
                         // homeBloc.add(HomeProductWishlistButtonClickedEvent(
                         //     clickedProduct: productDataModel));
                       },
-                      icon: const Icon(Icons.favorite_border)),
+                      icon: Icon(Icons.favorite_border)),
                   IconButton(
                       onPressed: () {
-                        // homeBloc.add(HomeProductCartButtonClickedEvent(
-                        //     clickedProduct: productDataModel));
+                        // cartBloc.add(CartRemoveFromCartEvent(
+                        //     productDataModel: productDataModel));
                       },
-                      icon: const Icon(
-                        Icons.shopping_bag_outlined,
-                      ))
+                      icon: Icon(Icons.shopping_bag)),
                 ],
               )
             ],

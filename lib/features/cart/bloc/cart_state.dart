@@ -1,7 +1,7 @@
 part of 'cart_bloc.dart';
 
 @immutable
-sealed class CartState {}
+abstract class CartState {}
 
 abstract class CartActionState extends CartState {}
 
