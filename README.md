@@ -1,6 +1,6 @@
 # Grocers
 
-A new Flutter project.
+This was a basic app that I built, and here I implemented the Bloc Logics that I've learned recently. I have implemented bloc for each feature that I had in this app from wishlist button to cart screen. All of them are implemented using Bloc. Overall it was a great learning experience and I will create more projects based on Bloc Logics in future. 
 
 ## Getting Started
 
