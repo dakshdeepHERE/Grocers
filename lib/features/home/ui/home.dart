@@ -29,10 +29,18 @@ class _HomeState extends State<Home> {
       listener: (context, state) {
         if (state is HomeNavigateToCartPageActionState) {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Cart()));
+              context, MaterialPageRoute(builder: (context) => const Cart()));
         } else if (state is HomeNavigateToWishlistPageActionState) {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Wishlist()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Wishlist()));
+        } else if (state is HomeCartedProductActionState) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text('Item Added to Cart'),
+          ));
+        } else if (state is HomeWishlistedProductActionState) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text('Item Wishlisted'),
+          ));
         }
       },
       builder: (context, state) {
@@ -70,6 +78,7 @@ class _HomeState extends State<Home> {
                   itemCount: successState.products.length,
                   itemBuilder: (context, index) {
                     return ProductTileWidget(
+                        homeBloc: homeBloc,
                         productDataModel: successState.products[index]);
                   }),
             );

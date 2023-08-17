@@ -1,11 +1,12 @@
-import 'package:akshitboc/features/home/bloc/home_bloc.dart';
 import 'package:akshitboc/features/home/models/home_product_data_model.dart';
 import 'package:flutter/material.dart';
 
-class ProductTileWidget extends StatelessWidget {
-  final HomeBloc homeBloc;
-  const ProductTileWidget(
-      {super.key, required this.productDataModel, required this.homeBloc});
+import '../bloc/cart_bloc.dart';
+
+class CartTileWidget extends StatelessWidget {
+  final CartBloc cartBloc;
+  const CartTileWidget(
+      {super.key, required this.productDataModel, required this.cartBloc});
   final ProductDataModel productDataModel;
 
   @override
@@ -47,14 +48,14 @@ class ProductTileWidget extends StatelessWidget {
                 children: [
                   IconButton(
                       onPressed: () {
-                        homeBloc.add(HomeProductWishlistButtonClickedEvent(
-                            clickedProduct: productDataModel));
+                        // homeBloc.add(HomeProductWishlistButtonClickedEvent(
+                        //     clickedProduct: productDataModel));
                       },
                       icon: const Icon(Icons.favorite_border)),
                   IconButton(
                       onPressed: () {
-                        homeBloc.add(HomeProductCartButtonClickedEvent(
-                            clickedProduct: productDataModel));
+                        // homeBloc.add(HomeProductCartButtonClickedEvent(
+                        //     clickedProduct: productDataModel));
                       },
                       icon: const Icon(
                         Icons.shopping_bag_outlined,

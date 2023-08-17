@@ -29,7 +29,7 @@ class GrocerryData {
       'price': 2.99,
       'quantity': '12',
       'imageURL':
-          'https://images.ctfassets.net/ruek9xr8ihvu/6ovFz2EraVM8oaIqi5bULB/2332dd6aae0fbac42f0f964a89d149d3/when-can-babies-eat-eggs.jpg',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD_H8NwLHr4XRc7PLRSX7Blfjh4I0EJi2Q8g&usqp=CAU',
     },
     {
       'name': 'Rice',
@@ -37,7 +37,7 @@ class GrocerryData {
       'price': 3.49,
       'quantity': '2',
       'imageURL':
-          'https://m.media-amazon.com/images/I/41RLYdZ6L4L._AC_UF1000,1000_QL80_.jpg',
+          'https://img.freepik.com/premium-photo/rice-cooker-bowl-white-background_55883-77.jpg',
     },
     {
       'name': 'Pasta',
@@ -45,7 +45,7 @@ class GrocerryData {
       'price': 1.29,
       'quantity': '3',
       'imageURL':
-          'https://www.sharmispassions.com/wp-content/uploads/2020/03/WhiteSaucePasta6-500x375.jpg',
+          'https://media.istockphoto.com/id/1351319005/vector/pasta-on-plate-macaroni-traditional-italian-food-vector-illustration.jpg?s=612x612&w=0&k=20&c=5wm4nJphenOl5any4Hiu-5SHtzXLmTqZS3oB6ByFF7k=',
     },
     {
       'name': 'Tomatoes',
